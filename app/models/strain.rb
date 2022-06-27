@@ -1,3 +1,3 @@
 class Strain < ApplicationRecord
-    validates :name, prescence: true, uniqueness: true
+    validates :name, presence: true, uniqueness: true
 end
