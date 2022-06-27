@@ -11,8 +11,18 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+    <div class="container">
+      <%if current_friend %>
+        <p>Hello  <%= current_friend.email %>! </p>
+        <p><%= link_to "Logout", destroy_friend_session_path, 'data-turbo-method': :delete %> </p>
+      <% else %>
+        <p>You are not signed in </p>
+      <%= link_to "Sign Up!", new_friend_registration_path %>
+      <%= link_to "Login!", new_friend_session_path %>
+      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+   </body>
 </html>
